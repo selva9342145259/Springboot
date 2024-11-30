@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeLeaf.com">
+    <head>
+        <title>Book Now</title>
+    </head>
+    <style>
+        button{
+            width: 60%;
+            height: 40px;
+            margin: 10px auto;
+            justify-content: center;
+            display: block;
+            color:cornsilk;
+            background: darkcyan;
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 20px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            transition: .2s ease-in;
+            cursor: pointer;
+        }
+        button:hover{
+            background:brown;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Georgia (serif);
+        }
+        body{
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .wrapper{
+            padding: 50px 25px 0;
+            max-width: 668px;
+            width: 100%;
+            margin: auto;
+        }
+        .wrapper::before{
+            content:'';
+            position:absolute;
+            top:0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background-image: url("background.jpg");
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            z-index: -1;
+        }
+        h2{
+            text-align: center;
+            font-size: 50px;
+             color: black;
+            margin-bottom: 30px;
+        }
+        .wrapper .form{
+            max-width: 350px;
+            width: 100%;
+            margin: auto;
+        }
+        .wrapper .form-group{
+            margin-bottom: 15px; 
+        }
+        .wrapper .form-group input{
+            display: block;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: -0.1px;
+            padding: 11px 15px;
+            height: 48px;
+            border-radius: 5px;
+            color:tomato;
+            border: 2px solid #00FFFF;
+            box-shadow: none;
+            width: 100%;
+        }
+        .wrapper .form-group input:focus{
+            outline: none;
+        }
+        .wrapper .form-group input::placeholder{
+            color:black;
+            font-weight: 700;
+            font-size: 15px;
+        }  
+    </style>
+    <body style="background-color:ivory;">
+        <div class="wrapper">
+            <div class="headline">
+                <h2>Modify your details</h2>
+            </div>
+            <form class="form"  th:action="@{/modify}" method="POST" action="index.html" th:object="${patient}">
+                <div class="login">
+                <input type="hidden" th:value="${patient.id}" name="id">
+                    <div class="form-group">
+                        <input type="text" name="Name" placeholder="Full Name" required="" th:value="${patient.Name}">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="EmailId" placeholder="Email-Id" required="" th:value="${patient.EmailId}">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="Phone" placeholder="Contact-Number" required="" th:value="${patient.Phone}">
+                    </div>
+                   <!-- <div class="form-group">
+                        <input type="textarea" name="disease" placeholder="Specify your health problem" required="">
+                    </div>-->
+                    <div class="form-group">
+                        <input type="date" name="Date" placeholder="Date" required="" th:value="${patient.Date}">
+                    </div>
+                    <div class="form-group">
+                        <input type="time" name="Time" placeholder="Time" required="" th:value="${patient.Time}">                
+                     </div>
+                       <button type="submit" class="btn">Book</button>
+                       <button type="reset" class="btn">Reset</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

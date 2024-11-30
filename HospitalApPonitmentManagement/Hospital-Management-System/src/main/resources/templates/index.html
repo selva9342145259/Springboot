@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Patient Management System</title>
+    <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR STYLING */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: lightblue;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links a {
+            color: #fff;
+            margin-right: 50px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #000;
+        }
+
+        .menu {
+            display: flex;
+            gap: 1em;
+            font-size: 18px;
+        }
+
+        /* LOGO */
+        .logo {
+            font-size: 28px;
+            font-family: fantasy;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: 60px;
+            margin-right: 10px;
+        }
+
+        /* Main Content */
+        .main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #f0f8ff;
+            flex-direction: column;
+        }
+
+        .main img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .info h2 {
+            text-align: center;
+            color: darkcyan;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .info p {
+            text-align: center;
+            font-size: 18px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 40px 20px;
+            background-color: #e6f7ff;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            color: #4169e1;
+        }
+
+        .about p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #4169e1;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Button */
+        .book button {
+            background-color: turquoise;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .book button:hover {
+            background-color: darkcyan;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4169e1;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-to-top:hover {
+            background-color: darkcyan;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .main {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="" th:src="@{image/logo.svg}">
+            Apollo Hospital
+        </div>
+        <ul class="nav-links menu">
+            <li><a href="showDoctor">Doctor Portal</a></li>
+            <li><a href="addPatient">Patient Portal</a></li>
+        </ul>
+    </nav>
+
+    <div class="main">
+      <img src="" th:src="@{image/center1.jpg}">
+  	
+        <div class="info">
+            <h2>24x7 Service at Your Doorstep</h2>
+            <p>
+                "The aim of medicine is to prevent disease and prolong life; <br />
+                the ideal of medicine is to eliminate the need for a physician."
+            </p>
+        </div>
+    </div>
+
+    <div class="about">
+        <h2>The Leading Hospital Management System in India</h2>
+        <p>
+            Handling patient appointments used to be a chaotic scene in hospitals and clinics. Not anymore! With MedCare's
+            Management Software, a systematic process has evolved. This software helps doctors coordinate with other departments,
+            access patient records with ease, and focus on core activities. Patients can now book their appointments anytime, 
+            anywhere, digitally saving time and reducing paperwork.
+        </p>
+    </div>
+
+    <footer>
+        <p><span class="iconify" data-icon="entypo:location-pin"></span> Velachery, Chennai, India</p>
+        <p><span class="iconify" data-icon="bxs:phone-call"></span> +91 9342145259</p>
+        <p><span class="iconify" data-icon="ic:baseline-email"></span> selva9342145259@gmail.com</p>
+    </footer>
+
+    <button class="back-to-top" onclick="scrollToTop()">
+        <span class="iconify" data-icon="ic:baseline-arrow-upward"></span>
+    </button>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    </script>
+</body>
+</html>

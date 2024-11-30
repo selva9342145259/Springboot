@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeLeaf.com">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        body {
+            background-color: #f0f8ff; /* Subtle light blue */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .wrapper {
+            padding: 30px 25px;
+            max-width: 500px;
+            width: 100%;
+            background-color: #ffffff; /* White background */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        .wrapper h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .form {
+            width: 100%;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border: 2px solid #00bcd4; /* Cyan border */
+            border-radius: 5px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #007bff; /* Blue border on focus */
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        .form-group input::placeholder {
+            color: #999;
+            font-size: 0.9rem;
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #007bff; /* Primary blue */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        .btn.reset {
+            background-color: #6c757d; /* Secondary gray */
+        }
+        .btn.reset:hover {
+            background-color: #5a6268; /* Darker gray on hover */
+        }
+        .note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Header -->
+        <h2>Book Your Appointment</h2>
+        <p class="note">Fill out the form below to schedule your appointment.</p>
+        
+        <!-- Form -->
+        <form class="form" th:action="@{/register}" method="POST" action="add_Patient.html" onsubmit="myFunction()">
+            <div class="form-group">
+                <input type="text" name="Name" placeholder="Full Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="EmailId" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+                <input type="number" name="Phone" placeholder="Contact Number" required>
+            </div>
+            <div class="form-group">
+                <input type="date" name="Date" placeholder="Select Date" required>
+            </div>
+            <div class="form-group">
+                <input type="time" name="Time" placeholder="Select Time" required>
+            </div>
+            <button type="submit" class="btn">Book Appointment</button>
+            <button type="reset" class="btn reset">Reset</button>
+        </form>
+    </div>
+
+    <!-- JavaScript Alert -->
+    <script>
+        function myFunction() {
+            alert("! Check your email for confirmation. if not receive confirm message you should try another date and time");
+        }
+    </script>
+</body>
+</html>

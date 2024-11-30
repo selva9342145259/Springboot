@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+button{
+            width: 60%;
+            height: 40px;
+            margin: 10px auto;
+            justify-content: center;
+            display: block;
+            color: white;
+            background: black;
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 20px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            transition: .2s ease-in;
+            cursor: pointer;
+        }
+        button:hover{
+            background: lightblue;
+        }     
+</style>
+</head>
+<body>
+<center>
+<h2>Patient's data </h2>
+</center>
+<table>
+  <tr>
+  <th>Id</th>
+  <th>Full Name</th>
+  <th>Email-Id</th>
+  <th>Contact-Number</th>
+  <th>Date of Appointment</th>
+  <th>Time</th>
+  <th> Status</th>
+  </tr>
+
+  <tr th:each="p: ${patient}">
+  <td th:text="${p.id}"></td>
+  <td th:text="${p.Name}"></td>
+  <td th:text="${p.EmailId}"></td>
+  <td th:text="${p.Phone}"></td>
+  <td th:text="${p.Date}"></td>
+  <td th:text="${p.Time}"></td>
+  <td><button><a style="color:white"; th:href="@{/update/{id}(id=${p.id})}">Update</a></button>
+      <button><a style="color:white";  th:href="@{/delete/{id}(id=${p.id})}">Delete</a></button>   
+  </td>
+  </tr>
+              
+</table>
+</body>
+</html>
+
+
